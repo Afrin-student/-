@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>காதலாகாத காதல் — For Priya 🩷</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    background:#fff;
+    color:#603541;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at 15% 15%,#ffdce8,transparent 30%),
+    radial-gradient(circle at 85% 85%,#ffe8f0,transparent 30%),
+    linear-gradient(135deg,#ffffff,#fff8fb,#ffeef4);
+
+    z-index:-10;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:3;
+}
+
+.hearts span{
+    position:absolute;
+    bottom:-60px;
+    color:#f2a2b9;
+    opacity:.55;
+    animation:floatHeart linear infinite;
+}
+
+.hearts span:nth-child(1){
+    left:7%;
+    font-size:18px;
+    animation-duration:9s;
+}
+
+.hearts span:nth-child(2){
+    left:20%;
+    font-size:25px;
+    animation-duration:12s;
+}
+
+.hearts span:nth-child(3){
+    left:38%;
+    font-size:15px;
+    animation-duration:8s;
+}
+
+.hearts span:nth-child(4){
+    left:55%;
+    font-size:28px;
+    animation-duration:11s;
+}
+
+.hearts span:nth-child(5){
+    left:74%;
+    font-size:20px;
+    animation-duration:9s;
+}
+
+.hearts span:nth-child(6){
+    left:90%;
+    font-size:16px;
+    animation-duration:13s;
+}
+
+/* =========================
+   FLOWERS
+========================= */
+
+.flower{
+    position:fixed;
+    z-index:2;
+    pointer-events:none;
+    color:#e8a0b4;
+    opacity:.45;
+}
+
+.f1{
+    top:25px;
+    left:20px;
+    font-size:45px;
+    transform:rotate(-15deg);
+}
+
+.f2{
+    bottom:20px;
+    right:20px;
+    font-size:48px;
+    transform:rotate(15deg);
+}
+
+.f3{
+    top:48%;
+    right:12px;
+    font-size:28px;
+}
+
+.f4{
+    bottom:35%;
+    left:12px;
+    font-size:30px;
+}
+
+/* =========================
+   TOP
+========================= */
+
+.top{
+    position:fixed;
+    top:17px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:100;
+
+    font-size:11px;
+    letter-spacing:2px;
+    color:#b46d81;
+
+    white-space:nowrap;
+}
+
+/* =========================
+   SLIDES
+========================= */
+
+.slide{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:35px 22px;
+
+    text-align:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:scale(.94);
+
+    transition:
+    opacity .9s ease,
+    transform .9s ease;
+}
+
+.slide.active{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
+}
+
+.content{
+    width:100%;
+    max-width:720px;
+    position:relative;
+    z-index:10;
+
+    animation:contentIn 1s ease;
+}
+
+.small{
+    color:#d17c94;
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
+
+h1{
+    color:#914c61;
+    font-size:clamp(42px,10vw,80px);
+    line-height:1.05;
+    margin-bottom:25px;
+}
+
+h2{
+    color:#914c61;
+    font-size:clamp(29px,7vw,55px);
+    line-height:1.15;
+    margin-bottom:24px;
+}
+
+p{
+    color:#67404c;
+    font-size:clamp(16px,4vw,21px);
+    line-height:1.75;
+    margin:10px 0;
+}
+
+.pink{
+    color:#d96f8c;
+}
+
+.heart{
+    display:inline-block;
+    color:#ee9bb3;
+    animation:heartbeat 1.3s infinite;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+    margin-top:32px;
+
+    padding:14px 30px;
+
+    border:1px solid #edb3c4;
+    border-radius:40px;
+
+    background:#f7c1d1;
+    color:#713b4d;
+
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 30px rgba(210,110,140,.18);
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:#f2afc3;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    background:rgba(255,255,255,.82);
+
+    border:1px solid #f1c2d0;
+
+    border-radius:25px;
+
+    padding:30px 22px;
+
+    box-shadow:
+    0 15px 55px rgba(200,100,130,.12);
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline{
+    text-align:left;
+
+    max-width:520px;
+
+    margin:30px auto;
+
+    border-left:2px solid #e6a0b5;
+
+    padding-left:24px;
+}
+
+.timeline-item{
+    margin-bottom:25px;
+}
+
+.year{
+    color:#c86b85;
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:4px;
+}
+
+/* =========================
+   ABCD
+========================= */
+
+.abcd{
+    margin-top:25px;
+
+    padding:20px;
+
+    border:1px dashed #dfa0b4;
+
+    border-radius:20px;
+
+    background:#fff8fb;
+}
+
+.abcd-title{
+    color:#c77990;
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.abcd-word{
+    margin-top:10px;
+
+    color:#d46d89;
+
+    font-size:38px;
+    letter-spacing:9px;
+
+    font-weight:bold;
+}
+
+.abcd-hint{
+    margin-top:8px;
+
+    color:#9d6b79;
+
+    font-size:14px;
+
+    font-style:italic;
+}
+
+/* =========================
+   POEM
+========================= */
+
+.poem{
+    margin:25px auto;
+
+    padding:28px 20px;
+
+    background:#fff8fb;
+
+    border:1px solid #efbdcc;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 10px 40px rgba(220,120,150,.12);
+}
+
+.poem p{
+    color:#9b526b;
+
+    font-size:clamp(19px,5vw,28px);
+
+    line-height:1.9;
+
+    font-weight:bold;
+}
+
+/* =========================
+   BIG REVEAL
+========================= */
+
+.reveal{
+    position:relative;
+}
+
+.reveal-small{
+    color:#c87991;
+
+    font-size:12px;
+
+    letter-spacing:5px;
+
+    margin-bottom:25px;
+}
+
+.reveal-line{
+    width:0;
+    height:1px;
+
+    background:#e39caf;
+
+    margin:20px auto;
+
+    animation:lineGrow 2s ease forwards;
+}
+
+.reveal-title{
+    color:#b95170;
+
+    font-size:clamp(38px,10vw,75px);
+
+    line-height:1.2;
+
+    opacity:0;
+
+    animation:revealText 2s ease 1s forwards;
+}
+
+.reveal-sub{
+    margin-top:20px;
+
+    color:#8b5a68;
+
+    font-size:clamp(16px,4vw,21px);
+
+    opacity:0;
+
+    animation:revealText 2s ease 2s forwards;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+    color:#c85d7b;
+
+    text-shadow:
+    0 4px 20px rgba(210,100,130,.15);
+}
+
+.signature{
+    margin-top:30px;
+
+    color:#a47c88;
+
+    font-size:14px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes contentIn{
+
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.25);
+    }
+
+}
+
+@keyframes floatHeart{
+
+    from{
+        transform:translateY(0) rotate(0deg);
+    }
+
+    to{
+        transform:translateY(-115vh) rotate(360deg);
+    }
+
+}
+
+@keyframes lineGrow{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:85%;
+    }
+
+}
+
+@keyframes revealText{
+
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px){
+
+    .slide{
+        padding:28px 18px;
+    }
+
+    .card{
+        padding:24px 17px;
+    }
+
+    p{
+        line-height:1.6;
+    }
+
+    .timeline{
+        padding-left:18px;
+    }
+
+    .flower{
+        opacity:.25;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     TOP COUNTER
+========================= -->
+
+<div class="top">
+    FOR PRIYA 🩷 &nbsp; <span id="counter">1 / 10</span>
+</div>
+
+
+<!-- =========================
+     FLOATING HEARTS
+========================= -->
+
+<div class="hearts">
+
+    <span>♥</span>
+    <span>♥</span>
+    <span>♥</span>
+    <span>♥</span>
+    <span>♥</span>
+    <span>♥</span>
+
+</div>
+
+
+<!-- =========================
+     FLOWERS
+========================= -->
+
+<div class="flower f1">🌸</div>
+<div class="flower f2">🌸</div>
+<div class="flower f3">🌸</div>
+<div class="flower f4">🌸</div>
+
+
+<!-- ==================================================
+     SLIDE 1
+================================================== -->
+
+<section class="slide active" id="slide1">
+
+<div class="content">
+
+<div class="small">
+A little something for you
+</div>
+
+<h1>
+Hey Priya
+<span class="heart">🩷</span>
+</h1>
+
+<p>
+This isn't just a birthday wish...
+</p>
+
+<p>
+It's a little story.
+</p>
+
+<p>
+A story that started years ago,
+disappeared,
+and somehow found its way back.
+</p>
+
+<button onclick="nextSlide()">
+Tap to begin 🩷
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 2
+================================================== -->
+
+<section class="slide" id="slide2">
+
+<div class="content">
+
+<div class="small">
+Chapter One
+</div>
+
+<h2>
+Somewhere in
+<span class="pink">2022...</span>
+</h2>
+
+<p>
+Four years ago,
+a random Instagram Live
+somehow became the beginning
+of a conversation.
+</p>
+
+<p>
+One message.
+Then another.
+</p>
+
+<p>
+And suddenly...
+we were talking.
+</p>
+
+<button onclick="nextSlide()">
+Continue →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 3
+================================================== -->
+
+<section class="slide" id="slide3">
+
+<div class="content">
+
+<div class="small">
+Something started...
+</div>
+
+<div class="card">
+
+<h2>
+A little
+<span class="pink">connection 🩷</span>
+</h2>
+
+<p>
+Numbers were exchanged.
+</p>
+
+<p>
+WhatsApp conversations started.
+</p>
+
+<p>
+And somewhere along the way,
+something quietly started growing.
+</p>
+
+<br>
+
+<p>
+Maybe it was a crush.
+<br>
+Maybe curiosity.
+<br>
+Maybe something more.
+</p>
+
+</div>
+
+<button onclick="nextSlide()">
+Keep going →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 4
+================================================== -->
+
+<section class="slide" id="slide4">
+
+<div class="content">
+
+<div class="small">
+But then...
+</div>
+
+<h2>
+Life happened.
+</h2>
+
+<p>
+One small mistake changed things.
+</p>
+
+<p>
+I stopped talking.
+<br>
+You stopped talking.
+</p>
+
+<p>
+And eventually,
+the conversation became silence.
+</p>
+
+<br>
+
+<p>
+Two people who once talked...
+<br>
+suddenly became strangers again.
+</p>
+
+<button onclick="nextSlide()">
+Next →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 5
+================================================== -->
+
+<section class="slide" id="slide5">
+
+<div class="content">
+
+<div class="small">
+Four years later...
+</div>
+
+<h2>
+<span class="pink">
+2022 → 2026
+</span>
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="year">
+2022
+</div>
+
+<p>
+Instagram Live.
+<br>
+One message.
+<br>
+A new conversation.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="year">
+Then...
+</div>
+
+<p>
+Silence.
+<br>
+Life moved on.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="year">
+2026
+</div>
+
+<p>
+One random day.
+<br>
+One familiar number.
+<br>
+One message.
+</p>
+
+</div>
+
+</div>
+
+<button onclick="nextSlide()">
+And then... 🩷
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 6
+================================================== -->
+
+<section class="slide" id="slide6">
+
+<div class="content">
+
+<div class="small">
+A little remembrance...
+</div>
+
+<div class="card">
+
+<h2>
+Some memories
+<span class="pink">stay. 🩷</span>
+</h2>
+
+<p>
+Some memories don't need an explanation.
+</p>
+
+<div class="abcd">
+
+<div class="abcd-title">
+If you know, you know...
+</div>
+
+<div class="abcd-word">
+ABCD
+</div>
+
+<div class="abcd-hint">
+A tiny hint from a story only two people remember. 😉
+</div>
+
+</div>
+
+<br>
+
+<p>
+Funny how one little memory
+can bring an entire chapter back.
+</p>
+
+</div>
+
+<button onclick="nextSlide()">
+One more thing... 🩷
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 7 — MAIN REVEAL
+================================================== -->
+
+<section class="slide" id="slide7">
+
+<div class="content reveal">
+
+<div class="reveal-small">
+Maybe this was never just a story...
+</div>
+
+<div class="reveal-line"></div>
+
+<div class="reveal-title">
+
+காதலாகாத காதல்
+
+</div>
+
+<div class="reveal-line"></div>
+
+<div class="reveal-sub">
+
+A feeling that was never named,
+<br>
+but somehow never disappeared. 🩷
+
+</div>
+
+<button onclick="nextSlide()">
+Read what was never said... 🌸
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 8 — POEM
+================================================== -->
+
+<section class="slide" id="slide8">
+
+<div class="content">
+
+<div class="small">
+For the girl behind the feeling...
+</div>
+
+<div class="poem">
+
+<p>
+
+என் மனம்...
+<br>
+தேடுகிறது உன்னை தினம்.
+
+<br><br>
+
+நீ ஒரு நீலா நிலவு,
+<br>
+உன்னை காதலிக்க
+<br>
+தேவை இல்லை அளவு.
+
+<br><br>
+
+உலகில் பிரகாசமானது சூரிய ஒளி,
+<br>
+அதற்கும் மேலானது
+<br>
+உன் விழி.
+
+</p>
+
+</div>
+
+<button onclick="nextSlide()">
+One last feeling... 🩷
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 9 — SECOND POEM
+================================================== -->
+
+<section class="slide" id="slide9">
+
+<div class="content">
+
+<div class="small">
+And sometimes...
+</div>
+
+<div class="poem">
+
+<p>
+
+உன்னை காணாத ஏக்கம்...
+<br>
+அதனால் வரவில்லை தூக்கம்.
+
+</p>
+
+</div>
+
+<br>
+
+<p>
+Maybe some feelings don't need a name.
+</p>
+
+<p>
+They just need
+the right person to understand them.
+</p>
+
+<button onclick="nextSlide()">
+Now... the birthday girl 🌸
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 10 — FINAL
+================================================== -->
+
+<section class="slide" id="slide10">
+
+<div class="content">
+
+<div class="small">
+September 19 🩷
+</div>
+
+<h1 class="final">
+
+HAPPY BIRTHDAY,
+
+<br>
+
+SWEET GIRL! 🌸
+
+</h1>
+
+<p>
+Always stay amazing.
+</p>
+
+<p>
+Keep smiling.
+Keep being you.
+</p>
+
+<br>
+
+<p>
+I'm genuinely happy
+that our paths crossed once...
+</p>
+
+<p>
+disappeared for four years...
+</p>
+
+<p>
+and somehow
+<span class="pink">
+crossed again.
+</span>
+</p>
+
+<br>
+
+<p style="font-size:26px;">
+
+<b>
+Love you always. 🩷
+</b>
+
+</p>
+
+<div class="signature">
+
+Made with love,
+memories & a little bit of destiny. 🌸
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+let currentSlide = 1;
+
+const totalSlides = 10;
+
+
+function nextSlide(){
+
+    if(currentSlide >= totalSlides){
+        return;
+    }
+
+
+    const oldSlide =
+        document.getElementById(
+            "slide" + currentSlide
+        );
+
+
+    oldSlide.classList.remove("active");
+
+
+    currentSlide++;
+
+
+    const newSlide =
+        document.getElementById(
+            "slide" + currentSlide
+        );
+
+
+    newSlide.classList.add("active");
+
+
+    document.getElementById("counter").innerText =
+        currentSlide + " / " + totalSlides;
+
+}
+
+
+/* Keyboard */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "ArrowRight" ||
+            event.key === "Enter"
+        ){
+
+            nextSlide();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
